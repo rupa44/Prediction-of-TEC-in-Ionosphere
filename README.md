@@ -1,105 +1,93 @@
 
+## *HARNESSING AI-DRIVEN PREDICTIONS OF TOTAL ELECTRON CONTENT IN IONOSPHERE*
 
-## **HARNESSING AI-DRIVEN PREDICTIONS OF TOTAL ELECTRON CONTENT IN IONOSPHERE**
+## *Overview*
 
-## **Overview**
-
-This project focuses on forecasting Total Electron Content (TEC) using machine learning models trained on space weather data. Accurate TEC prediction is essential for maintaining the reliability of satellite communication and navigation systems. The objective is to build predictive models using geomagnetic indices and solar activity parameters.
+This project focuses on predicting *Total Electron Content (TEC)* variations in the ionosphere caused by *solar flares, solar storms, and **earthquakes. Using machine learning models like **Random Forest Regressor* and *XGBoost*, we aim to analyze the impact of space weather and seismic events on space-based navigation systems.
 
 ---
 
-## **Table of Contents**
+## *Table of Contents*
 
 1. Project Description
-2. Dataset
-3. Preprocessing
-4. Feature Engineering
-5. Model Development
-6. Evaluation
-7. Visualization
+2. Data Sources
+3. Technologies and Methodologies used
+4. Key Parameters
+5. Event Windows(2024)
+6. Model Training
+7. Results Summary
 8. Dependencies
 
 ---
 
-## **Project Description**
+## *Project Description*
 
-The ionosphere influences GPS and satellite signals, especially during geomagnetic disturbances. This project uses historical TEC data and parameters like Kp, Ap, SSN, and F10.7 to build time series regression models. These models are used to forecast TEC values 24 hours in advance.
+To develop a robust model that predicts TEC fluctuations during significant solar and seismic events using real observational data and multiple ML algorithms, and to assess their performance against standard models like *IRI 2020*.
 
----
-
-## **Dataset**
-
-The dataset includes:
-
-* **Target variable**: Total Electron Content (TEC)
-* **Features**:
-
-  * Kp index (planetary K index)
-  * Ap index (planetary amplitude index)
-  * SSN (Sunspot Number)
-  * F10.7 (Solar Radio Flux)
-  * IRI TEC (from the IRI 2020 model)
-
-Data collected from sources like NASA OMNIWeb and NOAA for the year 2023.
 
 ---
 
-## **Preprocessing**
+## *Data Sources*
 
-* Handling missing values and aligning timestamps
-* Normalization of features
-* Date-wise slicing of training data for time-series model integrity
-
----
-
-## **Feature Engineering**
-
-* Polynomial feature expansion (degree = 2)
-* Scaling using StandardScaler
-* Time-sliced training sets based on prediction date
+- *INONO Lab* – Real TEC observations  
+- *IRI 2020 Model* – Standard ionospheric model  
+- *OMNIWeb (NASA)* – Geomagnetic and solar parameters  
 
 ---
 
-## **Model Development**
+## *🔧 Technologies and Methodologies Used*
 
-The models used in this project include:
+- *Languages & Tools:* Python, NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn, XGBoost
+- *ML Algorithms:* Random Forest Regressor, XGBoost Regressor
+- *Evaluation Metrics:* R² Score, MSLE, SMAPE, MAE, RMSE
 
-* **Random Forest Regressor**
-* **XGBoost Regressor**
-
-Each model is trained daily using data before the prediction date to maintain real-time forecasting integrity.
 
 ---
 
-## **Evaluation**
+## *🔍 Key Parameters*
 
-Evaluation metrics used for performance assessment:
-
-* **R² Score**
-* **Adjusted R²**
-* **Root Mean Squared Error (RMSE)**
-* **Residual Sum of Squares (RSS)**
-
-Results compared against IRI 2020 predicted TEC values.
+- *Solar & Geomagnetic Parameters:*  
+  - SSN (Sunspot Number)  
+  - Kp Index  
+  - Ap Index  
+  - F10.7 cm Solar Flux  
+- *Target Variable:* True TEC values (from INONO)
 
 ---
 
-## **Visualization**
+## *📅 Event Windows (2024)*
 
-* Scatter plots comparing true vs. predicted TEC
-* Regression line overlay
-* Evaluation statistics box (intercept, slope, R², etc.)
+- *Solar Flares:* Feb 22 (X6.7), May 14 (X8.79)
+- *Solar Storms:* May 6–17, Oct 6–15
+- *Earthquakes:* Jan 1, 2024 and Oct 26, 2013
 
 ---
 
-## **Dependencies**
+## *🧠 Model Training*
+
+- *Training Period:* 2023–2024
+- *Comparison:* Model predictions vs true TEC vs IRI 2020 outputs
+
+---
+
+## *📈 Results Summary*
+
+-The models successfully captured TEC fluctuations during major solar and seismic events in 2024.
+
+-The predicted TEC values closely aligned with true measurements and provided noticeable improvements over the IRI 2020 model in dynamic conditions.
+
+-These results highlight the potential of machine learning in enhancing the reliability of ionospheric predictions for navigation and communication systems.
+
+---
+
+## *Dependencies*
 
 * Python 3.x
 * Libraries:
 
-  * `pandas`
-  * `numpy`
-  * `matplotlib`, `seaborn`
-  * `scikit-learn`
-  * `xgboost`
+  * pandas
+  * numpy
+  * matplotlib, seaborn
+  * scikit-learn
+  * xgboost
 
